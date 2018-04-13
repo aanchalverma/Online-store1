@@ -1,0 +1,66 @@
+<!-- /templates/index.liquid -->
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css">
+ 
+<!--  jQuery 1.7+  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+ 
+<!-- Include js plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+
+<style>
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style>
+
+<div id="owl-demo">
+          
+  
+  <h1 style="font-size:60px;">Featured collection</h1>
+{% for product in collections.Dan-Brown.products %}
+ <div class="item">
+    
+    
+
+  
+  <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+  <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>   
+     
+  </div>
+
+{% endfor %}
+
+      
+      
+      
+    
+    
+    
+  </div>
+
+<script>
+  $(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+      items : 5,
+      itemsDesktop : [1199,5],
+      itemsDesktopSmall : [200,5]
+ 
+  });
+ 
+});
+</script>
